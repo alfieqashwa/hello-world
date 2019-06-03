@@ -1,0 +1,11 @@
+endpoint: http://localhost:4466
+datamodel: datamodel.prisma
+
+generate:
+  - generator: typescript-client
+    output: ./generated/prisma-client/
+
+# Prisma client is automatically being updated after every deploy by adding the following lines
+hooks:
+  post-deploy:
+    - prisma generate
